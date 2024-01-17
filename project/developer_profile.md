@@ -1,5 +1,6 @@
 
-![pr](https://github.com/ayyyane/unit3_g11/assets/142702159/d7595083-6179-415f-9a76-fa7ba25886b2)
+
+<img width = "540" alt = developer image src ="https://github.com/ayyyane/unit3_g11/assets/142702159/45e27a58-739b-4810-b7dc-876b86fe1d82">
 
 ## Basic info
 Name: Ayane Yamamoto
