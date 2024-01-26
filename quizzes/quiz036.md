@@ -1,7 +1,8 @@
-# quiz034
+# quiz036
 
 ## prompt
-<img width="1470" alt="Screenshot 2024-01-26 at 16 37 08" src="https://github.com/ayyyane/unit3_g11/assets/142702159/375b35d2-ac91-4101-a20f-95b55da77842">
+<img width="1176" alt="Screenshot 2024-01-26 at 17 08 10" src="https://github.com/ayyyane/unit3_g11/assets/142702159/1c4476e3-2141-4668-8bbc-7c9260732c42">
+
 
 ## solution 
 
