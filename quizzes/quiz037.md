@@ -16,8 +16,6 @@ class CompoundInterest:
 class AccountingProgram(CompoundInterest):
     def __init__(self,principal, rate, years):
         super().__init__()
-        self.set_rate(rate)
-        self.set_principal(principal)
         self.years=years
 
     def set_principal(self,principal):
