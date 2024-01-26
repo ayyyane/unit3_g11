@@ -3,6 +3,7 @@
 ## prompt
 <img width="1176" alt="Screenshot 2024-01-26 at 17 08 10" src="https://github.com/ayyyane/unit3_g11/assets/142702159/1c4476e3-2141-4668-8bbc-7c9260732c42">
 
+![IMG_1321](https://github.com/ayyyane/unit3_g11/assets/142702159/f7d7ca78-4be1-4c33-94f4-56cec96e0a82)
 
 ## solution 
 
