@@ -1,7 +1,8 @@
 ## quiz033
 
 ## prompt
-<img width="1470" alt="Screenshot 2024-01-26 at 16 35 54" src="https://github.com/ayyyane/unit3_g11/assets/142702159/dc4fe13b-f3dc-4698-b9e7-2e79d00309fd">
+<img width="1188" alt="Screenshot 2024-01-26 at 17 07 50" src="https://github.com/ayyyane/unit3_g11/assets/142702159/8b8a74d1-35ae-4fc4-b0d6-e1c2ebb40865">
+
 
 ## solution
 ```.py
