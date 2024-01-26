@@ -2,6 +2,7 @@
 
 ## prompt
 ![Screenshot 2024-01-26 at 16 43 35](https://github.com/ayyyane/unit3_g11/assets/142702159/21678413-bdac-402a-9692-63b4ac63f903)
+![Class](https://github.com/ayyyane/unit3_g11/assets/142702159/a4590494-52b5-4b2b-b776-465c4a81be80)
 
 ## sulution
 
