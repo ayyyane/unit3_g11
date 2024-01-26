@@ -3,6 +3,7 @@
 ## prompt
 <img width="786" alt="Screenshot 2024-01-26 at 17 57 08" src="https://github.com/ayyyane/unit3_g11/assets/142702159/aceb8fc3-f5f6-4053-ae2f-c3cd574ec544">
 
+![IMG_BE11341417AF-1](https://github.com/ayyyane/unit3_g11/assets/142702159/421dd3af-28b8-4654-88f7-debe417a9a12)
 
 ## solution
 
@@ -20,11 +21,6 @@ class quiz041(MDApp):
         button_color = self.root.ids.text
         button_color.md_bg_color = "black"
         button_color.color = "white"
-
-
-
-
-
 
 test = quiz041()
 test.run()
