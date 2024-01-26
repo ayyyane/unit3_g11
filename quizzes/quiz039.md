@@ -3,6 +3,8 @@
 ## prompt
 <img width="1162" alt="Screenshot 2024-01-26 at 17 08 27" src="https://github.com/ayyyane/unit3_g11/assets/142702159/5b8601a9-236f-4719-9e74-878388b76e55">
 
+![IMG_6AC62064957B-1](https://github.com/ayyyane/unit3_g11/assets/142702159/84f10b85-6ea9-46e6-b9ff-ca4a7ac5669c)
+
 ## solution
 
 ```.py
