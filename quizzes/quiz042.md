@@ -66,3 +66,7 @@ ScreenManager:
 <img width="499" alt="Screenshot 2024-01-26 at 19 15 35" src="https://github.com/ayyyane/unit3_g11/assets/142702159/b9a07726-71d7-4949-b5e8-110b8fc076ea">
 
 <img width="603" alt="Screenshot 2024-01-26 at 19 15 41" src="https://github.com/ayyyane/unit3_g11/assets/142702159/bc33cdcd-89cb-4e2e-a467-9a88af530bed">
+
+
+https://github.com/ayyyane/unit3_g11/assets/142702159/cce754bc-5fba-4495-b779-9a8a0e6dd844
+
