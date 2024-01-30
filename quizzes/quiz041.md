@@ -145,9 +145,11 @@ Screen:
 ```
 
 ## evidence
-<img width="790" alt="Screenshot 2024-01-26 at 18 04 56" src="https://github.com/ayyyane/unit3_g11/assets/142702159/7a3bfee7-80a5-4050-b17d-4b7158fd7898">
-<img width="796" alt="Screenshot 2024-01-26 at 18 05 02" src="https://github.com/ayyyane/unit3_g11/assets/142702159/20a207bd-4fdc-407b-a9da-c3cf6fd37b67">
-<img width="794" alt="Screenshot 2024-01-26 at 18 05 13" src="https://github.com/ayyyane/unit3_g11/assets/142702159/2e4a3176-7da1-4073-9103-ea022831de71">
+
+
+https://github.com/ayyyane/unit3_g11/assets/142702159/d312d09a-1237-4a59-a849-6d4de4acd75f
+
+
 
 
 
