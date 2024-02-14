@@ -14,8 +14,8 @@ I will provide an application to trace customers order, materials and money.
 
 ## Success Criteria
 
-1. Providses a way to create the item.
-2. Probides a Money , Tracker$.
-3. Probides an invetory.
-4. 
-5.
+1. The application allows the client to trace the money clearly using orders and expenses. Trace include creating, editing and deleting orders or expenses. [Issue Trackled: "She faces the problems of tracing customers orders, materials and money."]
+2. The application allows the client to track the amount of raw materials needed for the waterbottle. Tracing shows the ammount of metal, plastic,  [Issue Trackled: "She faces the problems of tracing customers orders, materials and money."]
+3. The application allows the client to produce water bottles with pushing few botton and entering the information. (Issue Trackled: "She has been keeping a paper record with all this information since she does not know much about the computer.")
+4. The application has a login system and a signup system to recognize different users.[Issue Trackled: ”She also wants to hire a new employee in order to support managing customer requests and purchasing materials, however, she does not want to share her personal paper record since it contains confidential information (money), yet the staff needs to see orders and materials. She is in a pickle."]
+5.　The application has a 
