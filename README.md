@@ -5,12 +5,12 @@
 
 **fig**
 
-## Problem definition
+### Problem definition
 A lady runs the company which produces water bottles alone. She faces the problems of tracing customers' orders, materials, and money. The problems led to mistakes in calculating sales　and sending products to a different customer which made the negative repetition to her company. She has been keeping a paper record with all this information since she does not know much about the computer. She also wants to hire a new employee to support managing customer requests and purchasing materials, however, she does not want to share her paper record since it contains confidential information (money), yet the staff needs to see orders and materials. She is in a pickle.
 
 
 
-## Proposed Solution
+### Proposed Solution
 I will provide an application to trace customers' orders, materials, and money with the tools below.
 
 Justification of tools:
@@ -20,7 +20,7 @@ Kivy, a Python framework for developing multi-touch applications, is particularl
 
 SQLite serves as an efficient and lightweight database management system, perfectly suited for the client's needs. Its self-contained, serverless architecture eliminates the need for complex setup and maintenance, making it an ideal choice for small-scale applications. With SQLite, the client can securely store and manage sensitive data, such as customer orders and financial records, without the need for extensive technical expertise. Furthermore, SQLite seamlessly integrates with Python, allowing for seamless interaction between the application's front end developed using Kivy and the backend database. This integration ensures data consistency, reliability, and confidentiality, addressing the client's concerns regarding the security of her confidential information while enabling her staff to access necessary data for managing customer requests and material procurement.
 
-## Success Criteria
+### Success Criteria
 
 1. The application allows the client to trace the money clearly using orders and expenses. Trace includes creating, editing, and deleting orders or expenses. [Issue Trackled: "She faces the problems of tracing customers orders, materials and money."]
 2. The application allows the client to track the amount of raw materials needed for the water bottle. Tracing shows the amount of metal, plastic,  [Issue Trackled: "She faces the problems of tracing customers orders, materials and money."]
@@ -30,36 +30,36 @@ SQLite serves as an efficient and lightweight database management system, perfec
 
 ## Criteria B Design
 
-## System Diagram
+### System Diagram
 <img width="1020" alt="systemdiagram" src="https://github.com/ayyyane/unit3_g11/assets/142702159/ed208c75-f556-4ab4-b2f9-056cc50359a9">
 
 **fig.** shows the system diagram
 
 The system diagram provides a visual representation of the system, its parts, and how they relate to one another. This displays the input (keyboard) to the output (various systems used in this project, including versions of the programming language (Python and KivyMD), the computer version and detail (Processor, version, memory, etc.), the module and database, and the output screen (application interface on the computer screen).
 
-## Wireframe Diagram
+### Wireframe Diagram
 ![Wireframediagram](https://github.com/ayyyane/unit3_g11/assets/142702159/75d77dce-bfc3-4d9a-adcd-a108999eef9c)
 
 **fig** shows the Wireframe diagram
 
 This wireframe diagram's objective is to visually represent the user interface design that outlines the application's structure and layout. The wireframe also shows how various screens will be accessed via various buttons. The user can see which screen will open when they touch and release the button according to the arrows that extend from the button to the screen.
 
-## Flow Diagram
-## ER Diagram
+### Flow Diagram
+### ER Diagram
 <img width="1095" alt="ER diagram" src="https://github.com/ayyyane/unit3_g11/assets/142702159/401c2215-c2f6-4902-ab79-72089063b101">
 
 **fig** shows the ER diagram
 
 This is the ER diagram for the database illustrating the relationship between the items table and users table from the database, called "project3.db". In the users table, there are 4 different columns including id, name, hash, and post each column will have the specific data type after the column name. The second table orders has 8 columns which are id, date, number, phone, products, price, and name. The last table inventory has two columns, amount and name.
 
-## UML Diagram
+### UML Diagram
 <img width="1051" alt="UMLdiagram" src="https://github.com/ayyyane/unit3_g11/assets/142702159/41c4d723-2472-4edb-bc84-574552cbc394">
 
 **fig**
 
 This UML diagram for the OOP classes illustrates the classes and methods utilized during the development of the application. It showcases two primary parent classes, namely MDApp and MDScreen. All the classes inherit the methods and attributes of these parent classes, which is demonstrated by the arrows displayed on the diagram.
 
-## Test Plan
+### Test Plan
 | Description               | Test type                    | input                                                                                                                                                                                               | Explected output                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 |---------------------------|------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Signup system             | unit test                    | 1. Run the project. 2. Click the "SignUp" button. 3. Input the information required on the screen. 4. Click "see password" button. 5. Click "submit" button.                                        | After clicking the "Submit" button, the Screen shifts to either "ManagerPage" or "StaffPage" depending on the users' input "position". If the user input "manager", shift to "ManagerPage" and if the user inputs "staff", shift to "StaffPage". Also, the textbox is changed to red if the user does occur the error including the different text type input and not matching the password and the confirm password.  If the "see password" button is clicked, user can see the password. |
@@ -70,7 +70,7 @@ This UML diagram for the OOP classes illustrates the classes and methods utilize
 | Inventory system          | unit test                    | 1. Run the project. 2. Login 3. Click the "Inventory" button. 4. Click produce button and chose optioin on the drop down box. 5. Add the amount number in the text field. 6. Click the save button. | The amount of material is decreased when the button with the text of the material is clicked. After information is added in the textfield and the "save" button is clicked, the amount is increased.                                                                                                                                                                                                                                                                                       |
 | Logout button             | integration test             | 1. Run the project. 2. Login 3. Click "Logout"button.                                                                                                                                               | After the button is pressed, the screen is changed to "LoginPage" and the password is invisible.                                                                                                                                                                                                                                                                                                                                                                                           |
 
-## Record of task
+### Record of task
 | Task No | Planned Action                                                                                                              | Planned outcome                                                                                                                               | Time estimate | Target complete date | Criterion |
 |---------|-----------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|---------------|----------------------|------------|
 | 1       | Meet with the client                                                                                                        | Talk with the client to discuss the problems she is facing and brainstorm solutions to create a plan to help the client resolve the problems. | 15 min        | Feb 20               | A          |
@@ -98,3 +98,18 @@ This UML diagram for the OOP classes illustrates the classes and methods utilize
 | 23      | Finish test plans                                                                                                           | Contains the procedures for testing the application as well as the expected results of each test.                                             | 2 hours       | March 5              | B          |
 | 24      | Write CriteriaC                                                                                                             | Write the code descriptions as well as the specifics of the techniques implemented.                                                           | 2 hours       | March 7              | C          |
 | 25      | Film final video                                                                                                            | Video demonstration of all success criteria operating and functioning within the built application                                           | 1 hour       | March 8              |            |
+
+
+## criteria C development
+
+### Technic used
+1. OOP paradigm
+2. KivyMD Library
+3. Relational databases
+4. SQLite, ORM
+5. functions
+6. if statements
+
+ ###
+
+
