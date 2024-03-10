@@ -26,12 +26,14 @@ SQLite serves as an efficient and lightweight database management system, perfec
 4. The application has a login system and a signup system for hiring the new employee.[Issue Trackled: ”She also wants to hire a new employee in order to support managing customer requests and purchasing materials]
 5. The application has two menus separated by the positions, managers, or staff which only allows for managers to see the finance information. [Issue Trackled: she does not want to share her paper record since it contains confidential information (money), yet the staff needs to see orders and materials. She is in a pickle.]
 
-## Criteira B Design
+## Criteria B Design
 
 ## System Diagram
 ## Wireframe Diagram
 ## Flow Diagram
 ## ER Diagram
+<img width="1095" alt="ER diagram" src="https://github.com/ayyyane/unit3_g11/assets/142702159/401c2215-c2f6-4902-ab79-72089063b101">
+
 ## UML Diagram
 <img width="1051" alt="UMLdiagram" src="https://github.com/ayyyane/unit3_g11/assets/142702159/41c4d723-2472-4edb-bc84-574552cbc394">
 
