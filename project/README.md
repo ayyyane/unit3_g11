@@ -30,6 +30,8 @@ SQLite serves as an efficient and lightweight database management system, perfec
 
 ## System Diagram
 ## Wireframe Diagram
+![Wireframediagram](https://github.com/ayyyane/unit3_g11/assets/142702159/75d77dce-bfc3-4d9a-adcd-a108999eef9c)
+
 ## Flow Diagram
 ## ER Diagram
 <img width="1095" alt="ER diagram" src="https://github.com/ayyyane/unit3_g11/assets/142702159/401c2215-c2f6-4902-ab79-72089063b101">
