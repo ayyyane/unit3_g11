@@ -45,6 +45,14 @@ The system diagram provides a visual representation of the system, its parts, an
 This wireframe diagram's objective is to visually represent the user interface design that outlines the application's structure and layout. The wireframe also shows how various screens will be accessed via various buttons. The user can see which screen will open when they touch and release the button according to the arrows that extend from the button to the screen.
 
 ### Flow Diagram
+
+### signup system
+<img width="579" alt="flowchart1" src="https://github.com/ayyyane/unit3_g11/assets/142702159/e9d112b5-4e30-4c88-838b-a2679b8709b4">
+
+**fig** The flow diagram of signup system
+
+This is the flow diagram for the code to sign up. This code collects data 
+
 ### ER Diagram
 <img width="1095" alt="ER diagram" src="https://github.com/ayyyane/unit3_g11/assets/142702159/401c2215-c2f6-4902-ab79-72089063b101">
 
