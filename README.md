@@ -102,7 +102,7 @@ This UML diagram for the OOP classes illustrates the classes and methods utilize
 
 ## criteria C development
 
-### Technic used
+## Technic used
 1. OOP paradigm
 2. KivyMD Library
 3. Relational databases
@@ -110,6 +110,306 @@ This UML diagram for the OOP classes illustrates the classes and methods utilize
 5. functions
 6. if statements
 
- ###
+ ## Python file: "project3.py"
+
+ ### Setting up the file
+
+ ```.py
+import sqlite3
+
+from kivy.lang import Builder
+from kivymd.app import MDApp
+from kivymd.uix.datatables import MDDataTable
+from kivymd.uix.menu import MDDropdownMenu
+from kivymd.uix.pickers import MDDatePicker
+from kivymd.uix.screen import MDScreen
+
+```
+The code imports several libraries that will be used to build the application. The sqlite3 library is used to connect to and manipulate an SQLite database, which will be used to store the data. The kivymd library is used to build the graphical user interface (GUI) of the application, which will be user-friendly and easy to navigate.
+
+### DatabaseBridge
+
+The class called DatabaseBridge initializes a connection to a SQLite database with the given name. It abstracts away the details of connecting to a database allowing the developer to interact with the database through a simplified interface. 
+
+```.py
+ def __init__(self, name:str, ):
+        self.db_name = name
+        self.connect = sqlite3.connect(self.db_name) # connecting the database called self.db_name and define to use sqlite3
+        self.cursor = self.connect.cursor()
+
+```
+This code defines an __init__ method within a class, which initializes an object with a specified database name. The __init__ method takes a string parameter name, representing the name of the database. Inside the method, it assigns the provided name to the db_name attribute of the object. It then establishes a connection to the SQLite database specified by db_name using the sqlite3.connect() function, and assigns the connection object to the connect attribute. Additionally, it creates a cursor object for executing SQL commands on the database and assigns it to the cursor attribute. Overall, this code snippet sets up a connection to a SQLite database within an object, enabling subsequent interactions with the database through the created cursor.
+
+### Create/check hash
+
+```.py
+def get_hash(text:str):
+    return hash_function.hash(text)
+
+def check_hash(input_hash, text): # check if the hash is same
+    return hash_function.verify(text, input_hash)
+```
+ The first function get_hash() takes a string text as input and returns the hash value of that text using a hash function hash_function.hash(). The second function check_hash() is designed to verify if a given hash value input_hash corresponds to the original text text. It takes two parameters: the hash value to check and the original text. It then utilizes a hash verification function hash_function.verify() to compare the provided hash value with the hash generated from the original text. The function returns True if the hashes match, indicating that the original text hasn't been tampered with, and False otherwise. These functions are useful for securely storing and verifying sensitive information such as passwords or digital signatures within an application.
+
+### Signup system
+
+```.py
+    def try_signup(self):
+        password = self.ids.password.text
+        cpass = self.ids.cpass.text
+
+        if password != cpass:
+            self.ids.cpass.error = True
+        # the passwords match
+        # check the password policy, length etc
+        post = self.ids.post.text  # get the email from GUI
+        if post != 'manger' or post != 'staff':
+            self.ids.post.error = True
+
+        # assume that you checked the username as well
+        username = self.ids.username.text
+
+        # check if the user have already existed
+        uname = f"SELECT name FROM users WHERE name = '{username}'"
+        results = project3.db.search(query=uname, multiple=True)
+        hash = get_hash(password)
+
+        if results == []:
+            new_user = f"""INSERT into users(post, hash, name) 
+            values('{post}', '{hash}', '{username}')
+                            """
+
+            if post == 'manager':
+                self.parent.current = 'ManagerMenu'
+                project3.db.insert(insert_query=new_user)
+                self.ids.password.text= ""
+
+
+            elif post == 'staff':
+                self.parent.current = "StaffMenu"
+                project3.db.insert(insert_query=new_user)
+                self.ids.password.text = ""
+
+            else:
+                self.ids.post.error = True
+
+        else:
+            self.ids.username.error = True
+
+```
+
+
+try_signup is a class in SignupScreen, presumably associated with a graphical user interface (GUI). The method retrieves input data such as password, confirmed password, post, and username from the GUI elements. It performs several checks on the input data: firstly, it compares the password and confirmed password to ensure they match, displaying an error if they don't. Then, it verifies if the post input matches predefined values 'manager' or 'staff', displaying an error if it doesn't. Next, it checks if the provided username already exists in the database. If the username doesn't exist, it creates a new user entry in the database with the provided details (post, hash of the password, username), and redirects the user to either 'ManagerMenu' or 'StaffMenu' based on the role specified. If the username already exists, it displays an error indicating that the user already exists. In this method, a hash is saved instead of saving the password.
+
+### Login system
+```.py
+position = None
+    def check_user(self):
+        db_name = "project3.db"
+        project3.db = DatabaseBridge(db_name)
+        username = self.ids.username.text
+        password = self.ids.password.text
+        self.ids.username.error = False
+        self.ids.password.error = False
+
+
+        query_hash = f"""Select hash from users where name = '{username}'"""
+        results_hash = project3.db.search(query=query_hash, multiple=True)
+        print(results_hash[0][0],password)
+        query_post =  f"""Select post from users where name = '{username}'"""
+        results_post = project3.db.search(query=query_post, multiple=True)
+        print(check_hash(results_hash[0][0],password))
+        print(results_post)
+
+        if check_hash(results_hash[0][0],password) == True:
+            LoginScreen.position = results_post[0][0]
+            print(LoginScreen.position)
+            print("hello")
+            if results_post[0][0] == "manager":
+                self.parent.current = "ManagerMenu"
+                self.ids.password.text = ""
+            else:
+                self.parent.current = "StaffMenu"
+                self.ids.password.text = ""
+        else:
+            self.ids.password.error = True
+
+```
+The method retrieves the username and password input from the GUI elements and initializes error flags for potential error states. It then queries a database to retrieve the hash of the password corresponding to the provided username. If the hash of the provided password matches the stored hash in the database, it sets the user's position (manager or staff) and navigates to the appropriate menu screen within the GUI. If the password verification fails, it flags an error on the password input field. This code segment serves as part of a user authentication mechanism, verifying user credentials against a stored database of usernames and hashed passwords before granting access to different parts of the application based on the user's role.
+
+### create table
+```.py
+def create_finance(self):
+    query = """Create table if not exists finance(
+                          id integer primary key,
+                          date str,
+                          amount int,
+                          purpose str
+                          )"""
+    project3.db.run_query(query=query)
+
+```
+The method is responsible for creating a table named "finance" if it doesn't already exist in the database. The SQL query string defines the structure of the "finance" table, specifying columns such as 'id', 'date', 'amount', and 'purpose'. The method then executes this query using a database interaction object project3.db.run_query(). Overall, this code segment automates the creation of a financial data table in the database, ensuring its existence before performing any subsequent operations involving financial data storage or retrieval within the application.
+
+### show table on the screen
+```.py
+    def on_pre_enter(self, *args):
+        # [name,size]
+        column_name = [('id', 40),('date',40),('products',30),('number',40),('price',30),('name', 50), ('phone', 50)]
+
+        self.data_table = MDDataTable(
+            size_hint=(.7, .5),
+            pos_hint={'center_x': .5, 'top': .7},
+            use_pagination=True,
+            check=True,
+            column_data=column_name
+        )
+        self.data_table.bind(on_row_press=self.row_pressed)
+        self.data_table.bind(on_check_press=self.check_pressed)
+        self.add_widget(self.data_table)
+        self.update()
+```
+This code defines a set of column names along with their sizes to be used in a data table. The MDDataTable widget from the KivyMD library is then instantiated with specified properties such as size hint, position hint, pagination usage, and check functionality, and initialized with the column data. Event bindings for row press and check press events are attached to the data table, indicating actions to be performed when a row is pressed or checked. Finally, the data table is added to the GUI, and the update() method is called, possibly to populate the table with initial data. This code segment sets up a data table within the GUI, providing an interface for displaying and interacting with tabular data in the application.
+
+### Save
+```.py
+def save(self):
+        name = self.ids.name.text
+        products = self.ids.products.text
+        number = self.ids.number.text
+        date = self.ids.date.text
+        phone = self.ids.phone.text
+        price = self.ids.price.text
+        save_q = f"""INSERT INTO orders(date, products, number, price, name, phone) 
+                    VALUES ('{date}','{products}',{number},{price},'{name}',{phone})"""
+        project3.db.run_query(query=save_q)
+        self.update()
+        self.parent.current = "CustomerPage"
+        project3.db.run_query(query=save_q)
+```
+
+This method retrieves input data such as customer name, ordered products, quantity, date, contact phone number, and price from the graphical user interface (GUI) elements. It constructs an SQL query string save_q to insert this data into an "orders" table within a database. The method then executes this query using a database interaction object project3.db.run_query(). After updating the GUI to reflect the changes, it navigates the user back to the "CustomerPage". However, there seems to be redundancy in the execution of the SQL query, as it's being executed twice consecutively with the same query string. This code segment essentially facilitates the saving of order details into the database and transitioning the user to another page within the application after the operation is completed.
+
+### Drop down menu
+```.py
+    def DropDownMenu(self, button):
+        print("working DropDownMenu")
+        button_menu = [{'text':"Glass",
+                        'viewclass':"OneLineListItem",
+                        'on_release': lambda x='': self.check_material("glass")},
+                       {'text': "Stainless steel",
+                        'viewclass': "OneLineListItem",
+                        'on_release': lambda x='text': self.check_material("stainless steel")},
+                       {'text': "Aluminium",
+                        'viewclass': "OneLineListItem",
+                        'on_release': lambda x='text': self.check_material("aluminium")},
+                       {'text': "Plastic",
+                        'viewclass': "OneLineListItem",
+                        'on_release': lambda x='text': self.check_material("plastic")}
+        ]
+
+        self.menu = MDDropdownMenu(caller = button, items = button_menu, width_mult = 2)
+        self.menu.open()
+
+```
+
+This method is triggered when a button is pressed, initiating a dropdown menu. The dropdown menu is created using the MDDropdownMenu widget from the KivyMD library, with a caller button and a list of menu items defined as dictionaries. Each menu item dictionary specifies text to be displayed, the view class for the item, and an action to be executed when the item is selected, indicated by the on_release event. In this case, the action self.check_material() is triggered with different material types ('glass', 'stainless steel', 'aluminium', 'plastic') as arguments based on the selected menu item. This code segment facilitates user interaction by presenting a dropdown menu for selecting different materials, likely for a specific application feature or setting within the GUI.
+
+## Kivy File: "project3.kv"
+### Screen Manager
+```.py
+ScreenManager:
+    id: main_scr
+    LoginScreen:
+        name: "Login page"
+
+    SignupScreen:
+        name: "Signup page"
+
+    ManagerMenu:
+        name: "ManagerMenu"
+
+    StaffMenu:
+        name: "StaffMenu"
+
+    FinanceScreen:
+        name: "FinancePage"
+
+    CustomerScreen:
+        name: "CustomerPage"
+
+    OrderScreen:
+        name: "OrderPage"
+
+    InventoryScreen:
+        name: "InventoryPage"
+```
+The ScreenManager provides a simple and efficient way to organize and switch between different screens in an application. Each screen is defined using a custom class that inherits from the Screen class, which allows for custom attributes and functionality to be defined for each screen. Abstraction was used to make the process of managing different screens and easily switching between them easier for me.
+
+### MDTextfield
+```.py
+MDTextField:
+            id: username
+            size_hint: .8, .15
+            pos_hint: {"center_x": .5, "center_y": .5}
+            hint_text: "Enter username"
+            helper_text: "The username doesn't exist"
+            helper_text_mode: "on_error"
+            icon_left: "account"
+            font_size: "15pt"
+```
+This widget is assigned the ID username for easy reference within the application code. It is configured with specific size hints, positioning hints to center it on the screen, and appearance properties such as hint text ("Enter username"), helper text ("The username doesn't exist"), and helper text mode ("on_error" mode, indicating it will be displayed when an error occurs). Additionally, it features an icon on the left side of the text field, represented by the "account" icon, serving as a visual cue for the field's purpose. The font size is set to 15pt. Overall, this code segment defines a stylized text input field with visual cues and error feedback, likely intended for users to input their username within the application's interface.
+
+### Encrypting Password
+```.py
+MDTextField:
+            id: cpass
+            size_hint: 1, .2
+            hint_text: "Enter password again"
+            password: True
+            helper_text: "The password isn't the same"
+            helper_text_mode: "on_error"
+            icon_left: "key-chain"
+            font_size: "10pt"
+```
+
+Here the code creates an MDTextField widget that allows users to input text. The MDTextField is defined with an ID of "cpass" and several attributes such as hint_text, font_size, and password. The hint_text parameter prompts the user with "Enter password again " as placeholder text within the field. The font_size attribute sets the font size of the text within the field to 10 points. The id attribute assigns a unique identifier, "cpas", to the widget, facilitating its reference elsewhere in the application's logic. Finally, the password attribute is set to True. This encrypts the input and provides security and privacy for the users trying to input their password.
+
+### MDBoxLayout
+```.py
+MDBoxLayout:
+        size_hint: .8, .8
+        orientation: "vertical"
+        pos_hint:{"center_x": .5, "center_y": .5}
+        md_bg_color: "white"
+        padding: dp(50)
+
+        MDLabel:
+            halign: "center"
+            id: text
+            size_hint: 1, .1
+            font_size: "30pt"
+            text: "Register"
+
+
+        MDTextField:
+            size_hint: 1, .2
+            id: username
+            hint_text: "Enter your name"
+            helper_text: "The username already exists."
+            helper_text_mode: "on_error"
+            icon_left: "account"
+            font_size: "10pt"
+```
+
+MDBoxLayout is utilized to structure the layout of graphical elements. The MDBoxLayout is configured with a size hint of 0.8 by 0.8, making it take up 80% of the available space both horizontally and vertically. It is oriented vertically (orientation: "vertical"), ensuring that its child elements are stacked vertically. Positioned at the center of the screen (pos_hint:{"center_x": .5, "center_y": .5}), it features a white background color (md_bg_color: "white") and padding of 50 density-independent pixels (padding: dp(50)), providing spacing around its contents. Within the MDBoxLayout, there are child elements such as an MDLabel displaying the text "Register" at the top, and an MDTextField below it allowing users to input their name. The MDBoxLayout serves as a container for organizing and arranging these UI elements in a structured and visually appealing manner within the application's interface.
+
+
+## Criteria D: Functionaliity
+
+### The video 
+https://drive.google.com/file/d/1M9zwYsXkGbd7uTwErd3eCURWx87VNIwx/view?usp=drive_link
+
+
 
 
