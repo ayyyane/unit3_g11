@@ -320,7 +320,7 @@ This method retrieves input data such as customer name, ordered products, quanti
         print("working DropDownMenu")
         button_menu = [{'text':"Glass",
                         'viewclass':"OneLineListItem",
-                        'on_release': lambda x='': self.check_material("glass")},
+                        'on_release': lambda x='text': self.check_material("glass")},
                        {'text': "Stainless steel",
                         'viewclass': "OneLineListItem",
                         'on_release': lambda x='text': self.check_material("stainless steel")},
