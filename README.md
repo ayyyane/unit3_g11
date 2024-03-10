@@ -58,7 +58,16 @@ This is the flow diagram for the code to sign up. This code collects data includ
 
 **fig** The flow diagram of login system
 
-This is the flow diagram for the code to login. This code collects data including username, password. This function firstly check if password and cpass matches and nextly if the post is either 'manager' or 'staff'. After that, make sure that there's no user with the same name and add these information in the database.  
+This is the flow diagram for the code to login. This code collects data including username, and password. This function first checks the hash where the username is saved and checks the hash is the same as the produced hash with the input password.
+
+## calculator in FinancePage
+<img width="401" alt="Screenshot 2024-03-11 at 1 59 38" src="https://github.com/ayyyane/unit3_g11/assets/142702159/4a813bdd-788d-4399-9364-3cfb32af6e60">
+
+**fig** The flow diagram of the calculator
+
+This is the flow diagram for the code to calculate the proceeds. This code collects data date. This function first checks the hash where the username is saved and checks the hash is the same as the produced hash with the input password.
+
+
 
 
 ### ER Diagram
