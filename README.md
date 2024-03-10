@@ -51,7 +51,15 @@ This wireframe diagram's objective is to visually represent the user interface d
 
 **fig** The flow diagram of signup system
 
-This is the flow diagram for the code to sign up. This code collects data 
+This is the flow diagram for the code to sign up. This code collects data including username, password, cpass(confirm password), and post(position). This function firstly check if the password and cpass matches and nextly if the post is either 'manager' or 'staff'. After that, make sure that there's no user with the same name and add this information in the database.
+
+### login system
+<img width="437" alt="Screenshot 2024-03-11 at 1 49 30" src="https://github.com/ayyyane/unit3_g11/assets/142702159/ed33c16a-1073-430c-bca9-69bcc325ecb8">
+
+**fig** The flow diagram of login system
+
+This is the flow diagram for the code to login. This code collects data including username, password. This function firstly check if password and cpass matches and nextly if the post is either 'manager' or 'staff'. After that, make sure that there's no user with the same name and add these information in the database.  
+
 
 ### ER Diagram
 <img width="1095" alt="ER diagram" src="https://github.com/ayyyane/unit3_g11/assets/142702159/401c2215-c2f6-4902-ab79-72089063b101">
